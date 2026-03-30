@@ -1,0 +1,88 @@
+/* ── Reset & Base ─────────────────────────────────────────── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Galaxy fonts */
+  --mono: 'JetBrains Mono', monospace;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --arabic: 'Amiri', 'Noto Naskh Arabic', serif;
+
+  /* BBOS color palette (from truthmarket_bbos.html) */
+  --accent: #c9a05a;
+  --accent2: #a07a38;
+
+  /* Stage colors */
+  --fnd: #b8a96a;
+  --tru: #d4974a;
+  --str: #5b9bd5;
+  --ofr: #9b7dd4;
+  --out: #5ab87a;
+  --sal: #d47560;
+  --dlr: #4ab8a8;
+  --ret: #d4a55a;
+  --opt: #7b6fa0;
+
+  /* Galaxy theme */
+  --bg-deep: #040406;
+  --bg-galaxy: #0a0a14;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg-deep);
+  color: #fff;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
+
+/* ── Animations ──────────────────────────────────────────── */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes galaxyFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes orbPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
+@keyframes moonPing { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.5); opacity: 1; } }
+
+/* ── BBOS Star Corona Effects ────────────────────────────── */
+@keyframes coronaPulse {
+  0%, 100% { transform: translate(-50%,-50%) scale(1); opacity: 0.7; }
+  50% { transform: translate(-50%,-50%) scale(1.08); opacity: 1; }
+}
+@keyframes coronaSpin {
+  from { transform: translate(-50%,-50%) rotate(0deg); }
+  to { transform: translate(-50%,-50%) rotate(360deg); }
+}
+@keyframes flareBreath {
+  0%, 100% { transform: translate(-50%,-50%) scale(1) rotate(0deg); opacity: 0.45; }
+  33% { transform: translate(-50%,-50%) scale(1.06) rotate(2deg); opacity: 0.65; }
+  66% { transform: translate(-50%,-50%) scale(0.97) rotate(-1.5deg); opacity: 0.5; }
+}
+@keyframes coreFlicker {
+  0%, 100% { filter: brightness(1); }
+  25% { filter: brightness(1.1); }
+  50% { filter: brightness(0.95); }
+  75% { filter: brightness(1.05); }
+}
+
+/* ── Spatial Navigation Transitions ──────────────────────── */
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.3); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes zoomOut {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(2.5); }
+}
+@keyframes flyAway {
+  from { opacity: 1; transform: scale(1) translate(0, 0); }
+  to   { opacity: 0; transform: scale(0.1) translate(var(--fly-x, 0px), var(--fly-y, 0px)); }
+}
+@keyframes contentSlideIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
